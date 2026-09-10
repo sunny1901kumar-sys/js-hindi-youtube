@@ -54,17 +54,17 @@ promiseFour.then((user) => {
 }).finally(() => console.log("THe promise is either resolved or rejected"))
 
 
-const promiseFive = new Promise(function (resolve, reject){
-    setTimeout(function(){
-        let error = true;
-        if(!error){
-            resolve({username: "javascript", password: "123"})
-        }
-        else{
-            reject('ERROR: Something went wrong')
-        }
-    },1000)    
-})
+// const promiseFive = new Promise(function (resolve, reject){
+//     setTimeout(function(){
+//         let error = true;
+//         if(!error){
+//             resolve({username: "javascript", password: "123"})
+//         }
+//         else{
+//             reject('ERROR: Something went wrong')
+//         }
+//     },1000)    
+// });
 
 async function consumePromiseFive(){
     try{
@@ -78,22 +78,25 @@ async function consumePromiseFive(){
 
 consumePromiseFive()
 
-async function getAllUsers(){
-    try{
-        const response = await fetch ('https://jsonplaceholder.typicode.com/users')
-        const data = response.json()
-        console.log(data);
-    } catch(errror) {
-        console.log("E: ",error);
-    }
-}
+// async function getAllUsers(){
+//     try{
+//         const response = await fetch ('https://jsonplaceholder.typicode.com/users')
+//         const data = response.json()
+//         console.log(data);
+//     } catch(errror) {
+//         console.log("E: ",error);
+//     }
+// }
 
 // getAllUsers()
 
-fetch ('https://jsonplaceholder.typicode.com/users')
+fetch ('https://api.github.com/users/hiteshchoudhary')
 .then((response) => {
     return response.json()
 })
 .then((data) => {
     console.log(data);
-})
+}).catch((error) => console.log(error))
+
+// promise call
+// yes this is also available , kuchh reading aap b karo
